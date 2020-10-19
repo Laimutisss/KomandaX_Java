@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">KomandaX</string>
+    <string name="title">Sveiki atvyke!</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_pastas">E.mail</string>
+    <string name="registracijos_title">Užsiregistruokite!</string>
+    <string name="login_remember_me">Remember me</string>
+    <string name="login_btn">Login</string>
+    <string name="register_btn">Register</string>
+    <string name="login_invalid_username">Klaidingai įvestas prisijungimo vardas</string>
+    <string name="login_invalid_password">Klaidingai įvestas prisijungimo slaptažodis</string>
+    <string name="tekstukas">Main informacija programos!</string>
+</resources>
