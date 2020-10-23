@@ -10,5 +10,6 @@
     <string name="register_btn">Register</string>
     <string name="login_invalid_username">Klaidingai įvestas prisijungimo vardas</string>
     <string name="login_invalid_password">Klaidingai įvestas prisijungimo slaptažodis</string>
+    <string name="login_invalid_mail">Klaidingai įvestas prisijungimo el.paštas</string>
     <string name="tekstukas">Main informacija programos!</string>
 </resources>

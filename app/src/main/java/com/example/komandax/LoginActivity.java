@@ -25,8 +25,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // čia bus vykdomas kodas, kai paspaudžiamas mygtukas
-                Toast.makeText(LoginActivity.this,
-                        username.getText().toString(),
+                Toast.makeText(LoginActivity.this, username.getText().toString() + "\n" + password.getText().toString(),
                         Toast.LENGTH_SHORT).show();
 
                 username.setError(null);
@@ -34,20 +33,16 @@ public class LoginActivity extends AppCompatActivity {
                     Intent goToSearchActivity = new Intent(LoginActivity.this, SearchActivity.class);
                     startActivity(goToSearchActivity);
                 } else { // jeigu username neteisingas
-                    username.setError("Error! Wrong username");
+                    username.setError(getString(R.string.login_invalid_username));
                     username.requestFocus();
                 }
-
-                Toast.makeText(LoginActivity.this,
-                        password.getText().toString(),
-                        Toast.LENGTH_SHORT).show();
 
                 password.setError(null);
                 if(Validation.isValidPassword(password.getText().toString())) {
                     Intent goToSearchActivity = new Intent(LoginActivity.this, SearchActivity.class);
                     startActivity(goToSearchActivity);
                 } else { // jeigu password neteisingas
-                    password.setError("Error! Wrong password");
+                    password.setError(getString(R.string.login_invalid_password));
                     password.requestFocus();
                 }
 

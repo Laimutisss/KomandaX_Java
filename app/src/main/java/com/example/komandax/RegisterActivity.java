@@ -24,39 +24,34 @@ public class RegisterActivity extends AppCompatActivity {
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                // čia bus vykdomas kodas, kai paspaudžiamas mygtukas
-                /*Toast.makeText(RegisterActivity.this,
-                        username.getText().toString(),
-                        mail.getText().toString(),
-                        password.getText().toString(),
-                        Toast.LENGTH_SHORT).show();*/
+            public void onClick(View focusView) {
 
-                username.setError(null);
+                boolean cancel = false;
+                focusView = null;
+
                 if(Validation.isValidUsername(username.getText().toString())) {
-                    Intent goToLoginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(goToLoginActivity);
-                } else { // jeigu username neteisingas
-                    username.setError("Error! Wrong username");
-                    username.requestFocus();
+                    username.setError(getString(R.string.login_invalid_username));
+                    cancel = true;
                 }
 
-                mail.setError(null);
-                if(Validation.isValidMail(mail.getText().toString())) {
-                    Intent goToLoginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(goToLoginActivity);
-                } else { // jeigu password neteisingas
-                    mail.setError("Error! Wrong E.Mail");
-                    mail.requestFocus();
+                if (Validation.isValidMail(mail.getText().toString())) {
+                    mail.setError(getString(R.string.login_invalid_mail));
+                    cancel = true;
                 }
 
-                password.setError(null);
-                if(Validation.isValidPassword(password.getText().toString())) {
+                if(Validation.isValidUsername(username.getText().toString())) {
+                    password.setError(getString(R.string.login_invalid_password));
+                    cancel = true;
+                }
+
+                if (cancel) {
+                    focusView.requestFocus();
+                } else {
+                    Toast.makeText(RegisterActivity.this, username.getText().toString() + "\n" + mail.getText().toString() + "\n" + password.getText().toString(),
+                            Toast.LENGTH_SHORT).show();
+
                     Intent goToLoginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(goToLoginActivity);
-                } else { // jeigu password neteisingas
-                    password.setError("Error! Wrong password");
-                    password.requestFocus();
                 }
 
             }
